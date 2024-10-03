@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc565593072d34044985a0ed765fa22c, type: 3}
+  m_Name: ExampleSurveyInfo
+  m_EditorClassIdentifier: 
+  surveyName: VLAT Demo Survey
+  surveyDescription: "This is an example survey, meant to showcase the menu navigation
+    capabilities of the locomotion accessibility tools. \nNo data is being collected;
+    your responses will be discarded.\nPress the \"Start\" button in the bottom right
+    to begin. When using accessible controls, the default 1->previous, 2->next, 3->select
+    can be used to navigate the interface."
+  surveyEndStatement: This concludes the demo survey. Upon continuing, the survey
+    will close, and this demonstration will be concluded.
+  surveyQuestions:
+  - questionType: 1
+    questionText: This is a selection question, which can be navigated via accessible
+      controls. Select all options which apply.
+    selectionOptions:
+    - This is the first option
+    - This is the second option
+    - This is the third option
+    - This is the final option
+    leftSliderText: 
+    rightSliderText: 
+    matrixColumnTexts: []
+    matrixRowTexts: []
+  - questionType: 2
+    questionText: Below is an example slider, which may be navigated using accessible
+      controls. Selecting the slider will incriment its value slightly. Choose any
+      value for the slider.
+    selectionOptions:
+    - This is option #1
+    - This is option #2
+    - There may be as many or as few options as you wish
+    - The survey taker may select as many of them or as few of them as they wish
+    - If you have a lot of options...
+    - They will eventually take up the whole page...
+    - Once this point is reached...
+    - Response options will begin to spillover...
+    - And the user is notified via a flashing notification
+    - Survey takers cannot continue the survey until they have viewed all options,
+      even if they are off the page
+    - In this way, survey takers are garunteed to have seen all response options
+    leftSliderText: Low
+    rightSliderText: High
+    matrixColumnTexts: []
+    matrixRowTexts: []
+  - questionType: 3
+    questionText: This is a matrix question, which can be navigated via accessible
+      controls. Select values as you wish.
+    selectionOptions: []
+    leftSliderText: 
+    rightSliderText: 
+    matrixColumnTexts:
+    - Low
+    - Medium
+    - High
+    matrixRowTexts:
+    - Another example entry
+    - A third example entry
+    - A fourth example entry
+    - A final example entry
