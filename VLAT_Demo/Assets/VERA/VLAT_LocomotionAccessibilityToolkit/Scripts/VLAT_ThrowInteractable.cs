@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class VLAT_DefaultInteractions : MonoBehaviour
+public class VLAT_ThrowInteractable : MonoBehaviour
 {
 
-    // VLAT_DefaultActions provides various simple default interactions, such as pick up, throw, etc.
+    // VLAT_ThrowInteractable provides various throw-based interactions
 
 
     #region VARIABLES
