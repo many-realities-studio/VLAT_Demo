@@ -17,14 +17,11 @@ public class CannonInteractable : MonoBehaviour
     [SerializeField] private Transform cannonBody;
     [SerializeField] private Transform cannonballSpawnpoint;
     [SerializeField] private GameObject cannonballPrefab;
-    [SerializeField] private float cannonFireSpeed = 10f;
-    [SerializeField] private TMP_Text cannonText;
+    private float cannonFireSpeed = 10f;
+    private TMP_Text cannonText;
     private int pumpkinsAlive = 3;
 
-    [SerializeField] private SurveyManager surveyManager;
-    [SerializeField] private CanvasGroup fadeCanvGroup;
-    [SerializeField] private Transform xrOrigin;
-    [SerializeField] private SurveyInfo exSurveyInfo;
+    private TransitionToSurvey surveyTransition;
 
 
     #endregion
@@ -38,6 +35,8 @@ public class CannonInteractable : MonoBehaviour
     private void Start()
     //--------------------------------------//
     {
+        cannonText = GetComponentInChildren<TMP_Text>();
+        surveyTransition = FindObjectOfType<TransitionToSurvey>();
         cannonText.text = "There are " + pumpkinsAlive + " pumpkins left!\nTake control of the cannon and fire at them!";
     
     } // END Start
@@ -162,7 +161,7 @@ public class CannonInteractable : MonoBehaviour
         if (pumpkinsAlive <= 0)
         {
             cannonText.text = "All pumpkins have been destroyed! You will now be teleported to a survey...";
-            StartCoroutine(StartSurveyProcess());
+            surveyTransition.BeginTransition();
         }
         else if (pumpkinsAlive == 1)
         {
@@ -174,31 +173,6 @@ public class CannonInteractable : MonoBehaviour
         }
 
     } // END PumpkinBroken
-
-
-    // Starts the survey process
-    //--------------------------------------//
-    private IEnumerator StartSurveyProcess()
-    //--------------------------------------//
-    {
-        yield return new WaitForSeconds(4f);
-
-        fadeCanvGroup.LeanAlpha(1f, .25f);
-
-        yield return new WaitForSeconds(.5f);
-
-        xrOrigin.transform.position = new Vector3(71.5f, 22f, 20f);
-        xrOrigin.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-
-        yield return new WaitForSeconds(.5f);
-
-        fadeCanvGroup.LeanAlpha(0f, .25f);
-
-        yield return new WaitForSeconds(.5f);
-
-        surveyManager.BeginSurvey(exSurveyInfo);
-
-    } // END StartSurveyProcess
 
 
     #endregion
