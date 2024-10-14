@@ -11,6 +11,8 @@ public class VLAT_Options : MonoBehaviour
     #region VARIABLES
 
 
+    public static VLAT_Options Instance;
+
     [Header("XR Player")]
     [Tooltip("The XR player's parent game object (e.g., for the XR Interaction Toolkit, the XR Origin game object)")]
     [SerializeField] private GameObject xrPlayerParent;
@@ -47,12 +49,29 @@ public class VLAT_Options : MonoBehaviour
     void Start()
     //--------------------------------------//
     {
+        SetupSingleton();
         SetupMovement();
         SetupInteraction();
         SetupSettings();
         SetupMenu();
 
     } // END Start
+
+
+    // Sets up as singleton
+    //---------------------------------------//
+    private void SetupSingleton()
+    //---------------------------------------//
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+    } // END SetupSingleton
 
 
     // Sets up the movement / character controller based on options
@@ -141,6 +160,22 @@ public class VLAT_Options : MonoBehaviour
         FindObjectOfType<NewMenuNavigation>().ShowVlatMenu();
 
     } // END ShowVlatMenu
+
+
+    #endregion
+
+
+    #region OTHER
+
+
+    // Gets the XR player parent
+    //--------------------------------------//
+    public GameObject GetXrPlayerParent()
+    //--------------------------------------//
+    {
+        return xrPlayerParent;
+
+    } // END GetXrPlayerParent
 
 
     #endregion
