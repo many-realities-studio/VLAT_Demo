@@ -129,9 +129,9 @@ public class SettingsManager : MonoBehaviour
         if (disableVirtualHandsToggle.isOn)
         {
             if (leftVirtualHand != null)
-                leftVirtualHand.gameObject.SetActive(true);
+                leftVirtualHand.gameObject.SetActive(false);
             if (rightVirtualHand != null)
-                rightVirtualHand.gameObject.SetActive(true);
+                rightVirtualHand.gameObject.SetActive(false);
         }
         else
         {
@@ -159,26 +159,19 @@ public class SettingsManager : MonoBehaviour
 
         switch (moveSpeedSlider.value)
         {
-            case 0:
-                multiplier = .1f;
+            case 0: multiplier = .1f;
                 break;
-            case 1:
-                multiplier = .35f;
+            case 1: multiplier = .35f;
                 break;
-            case 2:
-                multiplier = .7f;
+            case 2: multiplier = .7f;
                 break;
-            case 3:
-                multiplier = 1f;
+            case 3: multiplier = 1f;
                 break;
-            case 4:
-                multiplier = 1.5f;
+            case 4: multiplier = 1.5f;
                 break;
-            case 5:
-                multiplier = 2f;
+            case 5: multiplier = 2f;
                 break;
-            case 6:
-                multiplier = 3f;
+            case 6: multiplier = 3f;
                 break;
         }
 
@@ -203,7 +196,7 @@ public class SettingsManager : MonoBehaviour
     {
         float multiplier = 1f;
 
-        switch (turnAmtSlider.value)
+        switch (moveSpeedSlider.value)
         {
             case 0:
                 multiplier = .1f;

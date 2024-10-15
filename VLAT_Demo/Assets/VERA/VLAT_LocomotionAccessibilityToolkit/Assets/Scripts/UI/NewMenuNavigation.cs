@@ -102,23 +102,23 @@ public class NewMenuNavigation : MonoBehaviour
             return;
         }
 
-        switch (currentUiState)
+        switch(currentUiState)
         {
             // If on header, tab one folder to the left
             case UiState.Header:
                 switch (folderTabsManager.TabLeft())
                 {
-                    case 0:
+                    case 0: 
                         pendingStateAfterHeader = UiState.Look;
                         break;
-                    case 1:
-                        pendingStateAfterHeader = UiState.Move;
+                    case 1: 
+                        pendingStateAfterHeader = UiState.Move; 
                         break;
-                    case 2:
-                        pendingStateAfterHeader = UiState.Interact;
+                    case 2: 
+                        pendingStateAfterHeader = UiState.Interact; 
                         break;
-                    case 3:
-                        pendingStateAfterHeader = UiState.Settings;
+                    case 3: 
+                        pendingStateAfterHeader = UiState.Settings; 
                         break;
                 }
                 mainAreaManager.SwapMainAreaToMode(pendingStateAfterHeader);
@@ -221,7 +221,7 @@ public class NewMenuNavigation : MonoBehaviour
             // If on header, begin controlling main area
             case UiState.Header:
                 folderTabsManager.EndTabbing();
-                switch (pendingStateAfterHeader)
+                switch(pendingStateAfterHeader)
                 {
                     case UiState.Look:
                         lookTabberManager.ResetTabbing();
@@ -431,7 +431,7 @@ public class NewMenuNavigation : MonoBehaviour
         settingsCanvasGroup.LeanAlpha(1f, .25f);
 
         transform.LeanMoveLocalY(settingsStartPosY + (settingsNewSize - settingsStartPosY) / 2f, .25f).setEaseOutQuad();
-
+        
         RectTransform rectTrans = mainAreaManager.GetComponent<RectTransform>();
         LeanTween.value(mainAreaManager.gameObject, rectTrans.sizeDelta.y, settingsNewSize, .25f).setEaseOutQuad().setOnUpdate((value) =>
         {
@@ -440,7 +440,7 @@ public class NewMenuNavigation : MonoBehaviour
 
         mainAreaManager.HideCanvGroups();
 
-        settingsNavigator.StartMenuNavigation(true);
+        settingsNavigator.StartMenuNavigation(true);        
 
     } // END OpenSettings
 
@@ -476,7 +476,7 @@ public class NewMenuNavigation : MonoBehaviour
     {
         currentTurnAmt = turnAmt;
         transform.localRotation = Quaternion.Euler(turnAmt, transform.localRotation.eulerAngles.y, transform.localRotation.eulerAngles.z);
-
+    
     } // END RotTo
 
 

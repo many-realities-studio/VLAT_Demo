@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BreakablePumpkin : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class BreakablePumpkin : MonoBehaviour
 
     [SerializeField] private Rigidbody[] breakableRbs;
     private bool broken = false;
+    [SerializeField] private UnityEvent onBreak;
 
 
     #endregion
@@ -34,6 +36,8 @@ public class BreakablePumpkin : MonoBehaviour
                 rb.isKinematic = false;
                 rb.gameObject.GetComponent<Collider>().enabled = true;
             }
+
+            onBreak?.Invoke();
         }
 
     } // END BreakPumpkin

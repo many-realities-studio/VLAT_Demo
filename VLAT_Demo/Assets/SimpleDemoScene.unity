@@ -155,7 +155,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 119195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88e62d5c831599f4c98067d0df217077, type: 3}
+  m_Script: {fileID: 11500000, guid: 196ca9ce809ef1a40a04c44c6ac9600a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &119197
@@ -2739,13 +2739,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1487576882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b407b62a6d22954d94b7ed5c23eec94, type: 3}
+  m_Script: {fileID: 11500000, guid: e8a8d3ef5dffd99478b804e0bf7905f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   twoWayDoor: 0
-  doorHingeJoint: {fileID: 1487576890}
-  pushedOpenHingeAngle: -90
-  pulledOpenHingeAngle: 90
+  doorHingeJoint: {fileID: 0}
+  pushedOpenHingeAngle: 0
+  pulledOpenHingeAngle: 0
   openHingeAngle: -90
   closedHingeAngle: 0
 --- !u!114 &1487576887

@@ -183,7 +183,7 @@ public class SelectionController : MonoBehaviour
                 Collider[] objChildColliders = collider.gameObject.GetComponentsInChildren<Collider>();
                 Collider[] combinedColliders = cameraColliders.Concat(objChildColliders).ToArray();
                 RaycastHit[] hits = Physics.RaycastAll(playerCam.transform.position, directionToInteractable, Vector3.Distance(playerCam.transform.position, collider.gameObject.transform.position));
-                
+
                 // If hits is 1, then we have direct line of sight on the object; add it to the list
                 if (hits.Length == 1 && hits[0].collider == collider)
                 {
@@ -206,7 +206,7 @@ public class SelectionController : MonoBehaviour
                         // If collider is neither of above, it's a "blocker", and the object cannot be seen
                         else
                         {
-                            objectBlocked = true; 
+                            objectBlocked = true;
                             break;
                         }
                     }
