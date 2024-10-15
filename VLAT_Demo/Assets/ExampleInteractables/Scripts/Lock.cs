@@ -63,10 +63,12 @@ public class Lock : MonoBehaviour
     {
         if (currentlyLocked)
         {
-            GrabTracker grabTracker = FindObjectOfType<GrabTracker>();
+            // UNCOMMENT below lines to allow unlocking via VLAT controls
 
-            if (grabTracker.grabbedObject != null && grabTracker.grabbedObject.transform == linkedKey)
-                Unlock();
+            //GrabTracker grabTracker = FindObjectOfType<GrabTracker>();
+
+            //if (grabTracker.grabbedObject != null && grabTracker.grabbedObject.transform == linkedKey)
+            //    Unlock();
         }
 
     } // END TryUnlock
@@ -120,13 +122,18 @@ public class Lock : MonoBehaviour
         rightDoorHinge.limits = limits;
 
         // Destroy lock and key, and spawn some particles
-        transform.LeanScale(Vector3.zero, .5f).setEaseInExpo();
-        linkedKey.LeanScale(Vector3.zero, .5f).setEaseInExpo();
+
+        // UNCOMMENT below lines to allow shrinking animation of key and lock
+
+        //transform.LeanScale(Vector3.zero, .5f).setEaseInExpo();
+        //linkedKey.LeanScale(Vector3.zero, .5f).setEaseInExpo();
         GameObject.Destroy(GameObject.Instantiate(keyUnlockParticles, transform.position, Quaternion.identity), 2f);
         GameObject.Destroy(GameObject.Instantiate(keyUnlockParticles, linkedKey.position, Quaternion.identity), 2f);
-        GameObject.Destroy(linkedKey.gameObject, 2f);
 
         onUnlock?.Invoke();
+
+        GameObject.Destroy(linkedKey.gameObject);
+        GameObject.Destroy(gameObject);
 
     } // END Unlock
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CannonInteractable : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class CannonInteractable : MonoBehaviour
     private TMP_Text cannonText;
     private int pumpkinsAlive = 3;
 
-    private TransitionToSurvey surveyTransition;
+    [SerializeField] private UnityEvent onPumpkinsDestroyed;
 
 
     #endregion
@@ -36,7 +37,6 @@ public class CannonInteractable : MonoBehaviour
     //--------------------------------------//
     {
         cannonText = GetComponentInChildren<TMP_Text>();
-        surveyTransition = FindObjectOfType<TransitionToSurvey>();
         cannonText.text = "There are " + pumpkinsAlive + " pumpkins left!\nTake control of the cannon and fire at them!";
     
     } // END Start
@@ -160,8 +160,8 @@ public class CannonInteractable : MonoBehaviour
         pumpkinsAlive--;
         if (pumpkinsAlive <= 0)
         {
-            cannonText.text = "All pumpkins have been destroyed! You will now be teleported to a survey...";
-            surveyTransition.BeginTransition();
+            cannonText.text = "All pumpkins have been destroyed!";
+            onPumpkinsDestroyed?.Invoke();
         }
         else if (pumpkinsAlive == 1)
         {
