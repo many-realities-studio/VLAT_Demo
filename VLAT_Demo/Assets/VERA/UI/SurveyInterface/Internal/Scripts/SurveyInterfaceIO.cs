@@ -22,6 +22,9 @@ public class SurveyInterfaceIO : MonoBehaviour
     {
         surveyManager = GetComponent<SurveyManager>();
         surveyManager.Setup();
+
+        // NOTE: Line below, along with associated demoSurveyInfo variable, can be deleted; present for testing purposes.
+        StartSurvey(demoSurveyInfo);
     }
 
     #endregion

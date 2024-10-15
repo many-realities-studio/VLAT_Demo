@@ -14,7 +14,7 @@ public class TransitionToSurvey : MonoBehaviour
 
     private CanvasGroup fadeCanvas;
     [SerializeField] private GameObject xrOrigin;
-    private SurveyManager surveyManager;
+    private DemoSurveyManager surveyManager;
     [SerializeField] private SurveyInfo surveyInfo;
 
 
@@ -39,7 +39,7 @@ public class TransitionToSurvey : MonoBehaviour
     private IEnumerator StartSurveyProcess()
     //--------------------------------------//
     {
-        surveyManager = FindObjectOfType<SurveyManager>();
+        surveyManager = FindObjectOfType<DemoSurveyManager>();
         fadeCanvas = GetComponent<CanvasGroup>();
 
         yield return new WaitForSeconds(4f);

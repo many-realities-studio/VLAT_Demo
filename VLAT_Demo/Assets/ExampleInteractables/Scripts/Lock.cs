@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Lock : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Lock : MonoBehaviour
     [SerializeField] private TMP_Text doorDisplayText;
     [SerializeField] private HingeJoint leftDoorHinge, rightDoorHinge;
     [SerializeField] private ParticleSystem keyUnlockParticles;
+    [SerializeField] private UnityEvent onUnlock;
 
     private float leftHingeMin, leftHingeMax, rightHingeMin, rightHingeMax;
     private bool currentlyLocked = true;
@@ -123,6 +125,8 @@ public class Lock : MonoBehaviour
         GameObject.Destroy(GameObject.Instantiate(keyUnlockParticles, transform.position, Quaternion.identity), 2f);
         GameObject.Destroy(GameObject.Instantiate(keyUnlockParticles, linkedKey.position, Quaternion.identity), 2f);
         GameObject.Destroy(linkedKey.gameObject, 2f);
+
+        onUnlock?.Invoke();
 
     } // END Unlock
 

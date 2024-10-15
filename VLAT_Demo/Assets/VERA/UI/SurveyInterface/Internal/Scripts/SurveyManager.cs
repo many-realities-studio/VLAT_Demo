@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
-[RequireComponent(typeof(SurveyInterfaceIO))]
 public class SurveyManager : MonoBehaviour
 {
 
@@ -302,7 +301,8 @@ public class SurveyManager : MonoBehaviour
         // Check for end screen
         if (currentQuestionIndex == activeSurvey.surveyQuestions.Count)
         {
-            StartCoroutine(HideWindow());
+            currentQuestionIndex++;
+            StartCoroutine(UploadSurvey());
             return;
         }
 
@@ -499,7 +499,8 @@ public class SurveyManager : MonoBehaviour
 
         // Set the description
         TMP_Text newBlock = GameObject.Instantiate(textAreaPrefab, responseContentParent);
-        newBlock.text = activeSurvey.surveyEndStatement;
+        newBlock.text = activeSurvey.surveyEndStatement + "\n\nOnce you continue, your results will be uploaded, " +
+            "and you will not be able to change your survey response.";
 
         // Set the question text and update desired size
         questionText.text = "Survey complete";

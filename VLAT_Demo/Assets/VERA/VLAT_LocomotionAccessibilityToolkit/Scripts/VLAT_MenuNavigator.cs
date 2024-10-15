@@ -61,7 +61,7 @@ public class VLAT_MenuNavigator : MonoBehaviour
     //--------------------------------------//
     {
         ManualSetup();
-
+    
     } // END Start
 
 
@@ -76,7 +76,7 @@ public class VLAT_MenuNavigator : MonoBehaviour
             Debug.LogWarning("VLAT_MenuNavigator is in scene, but no VLAT_Menu prefab is present. " +
                 "Add a VLAT_Menu prefab to enable menu navigation.");
         }
-
+        
     } // END LogVlatNotPresentWarning
 
 
@@ -192,7 +192,7 @@ public class VLAT_MenuNavigator : MonoBehaviour
             currentlyHighlightedItem = 0;
             HighlightItem(currentlyHighlightedItem);
         }
-
+        
     } // END AddNavigatableItems
 
 
@@ -210,7 +210,7 @@ public class VLAT_MenuNavigator : MonoBehaviour
         StopHighlightItem(currentlyHighlightedItem);
         currentlyHighlightedItem++;
 
-        if (currentlyHighlightedItem >= orderedMenuItems.Count)
+        if (currentlyHighlightedItem >= orderedMenuItems.Count) 
         {
             currentlyHighlightedItem = 0;
         }
@@ -374,7 +374,7 @@ public class VLAT_MenuNavigator : MonoBehaviour
             newTab = GameObject.Instantiate(menuNavigation.toggleHighlightPrefab, orderedMenuItems[itemToHighlight].transform, false);
             newTab.transform.SetAsFirstSibling();
 
-            foreach (Transform child in orderedMenuItems[itemToHighlight].transform)
+            foreach(Transform child in orderedMenuItems[itemToHighlight].transform)
             {
                 if (child.GetComponent<HighlightableTab>() == null)
                 {
@@ -385,7 +385,7 @@ public class VLAT_MenuNavigator : MonoBehaviour
 
                     break;
                 }
-            }
+            }            
         }
         else if (sliderCheck != null)
         {
@@ -424,7 +424,7 @@ public class VLAT_MenuNavigator : MonoBehaviour
             return;
 
         HighlightableTab tab = orderedMenuItems[itemToStopHighlight].transform.GetChild(0).GetComponent<HighlightableTab>();
-
+        
         if (tab != null)
         {
             tab.EndHighlight();
