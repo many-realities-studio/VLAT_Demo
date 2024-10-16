@@ -19185,8 +19185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e63c53de868b28941947d5fedf7fe7ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  API_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YzY4Y2E3MjQwNWI0MDA1ZjA5OGM2NSIsImZpcnN0TmFtZSI6IkNvcmV5IiwibGFzdE5hbWUiOiJDbGVtZW50cyIsImVtYWlsIjoiY280MzAwMTVAdWNmLmVkdSIsImlhdCI6MTcyODk1NzA0OSwiZXhwIjoxNzI4OTg1ODQ5fQ.7Opaj0VO2N-zqkwO50q32AY6W0BANtBL6dxzJeTdJ14
-  study_UUID: 670dca7fa68db7003e736a18
+  API_KEY: 
+  study_UUID: 
   filePath: 
   participant_UUID: 
   development: 0
