@@ -15,7 +15,7 @@ public class CannonLeverHandler : MonoBehaviour
 
     [SerializeField] private CannonInteractable cannonInteractable;
     private bool grabActive = false;
-    [SerializeField] private XRBaseInputInteractor rayInteractorRight, rayInteractorLeft;
+    [SerializeField] private Transform controlSphere;
     private Transform targetTransform;
 
 
@@ -31,7 +31,9 @@ public class CannonLeverHandler : MonoBehaviour
     //--------------------------------------//
     {
         if (grabActive)
-            cannonInteractable.OnRotatingCannon(targetTransform);
+        {
+            cannonInteractable.OnRotatingCannon(transform);
+        }
 
     } // END OnTriggerStay
 
@@ -41,16 +43,7 @@ public class CannonLeverHandler : MonoBehaviour
     public void OnSelect()
     //--------------------------------------//
     {
-        if (rayInteractorLeft.interactablesSelected != null && rayInteractorLeft.interactablesSelected.Count > 0 && rayInteractorLeft.interactablesSelected[0] != null && rayInteractorLeft.interactablesSelected[0].transform.CompareTag("Button"))
-        {
-            targetTransform = rayInteractorLeft.transform;
-            grabActive = true;
-        }
-        else if (rayInteractorRight.interactablesSelected != null && rayInteractorRight.interactablesSelected.Count > 0 && rayInteractorRight.interactablesSelected[0] != null && rayInteractorRight.interactablesSelected[0].transform.CompareTag("Button"))
-        {
-            targetTransform = rayInteractorRight.transform;
-            grabActive = true;
-        }
+        grabActive = true;
 
     } // END OnSelect
 
@@ -61,8 +54,19 @@ public class CannonLeverHandler : MonoBehaviour
     //--------------------------------------//
     {
         grabActive = false;
+        ResetGrabPos();
 
     } // END OnEndSelect
+
+
+    // Resets grab position to control sphere
+    //--------------------------------------//
+    private void ResetGrabPos()
+    //--------------------------------------//
+    {
+        transform.position = controlSphere.position;
+
+    } // END ResetGrabPos
 
 
     #endregion
